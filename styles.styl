@@ -1,0 +1,846 @@
+*
+  margin: 0
+  padding: 0
+  outline none
+
+R($target)
+  $context = 16
+  $target / $context * 1rem
+
+body
+  font-weight: 400
+  font-style: normal
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  font-feature-settings: 'pnum' on, 'lnum' on
+  font-size: R(16)
+  line-height: 1.2
+  display flex
+  flex-direction column
+  align-items flex-start
+  justify-content space-between
+  background-color: #282829
+  // row-gap: R(100)
+  overflow-x: hidden;
+  min-height: 100dvh;
+  width: 100%
+  position: relative
+  overflow-x: hidden;
+
+a
+  text-decoration: none
+  cursor: pointer
+  color: #38535D
+  font-weight: 400
+  &:hover
+    text-decoration: underline
+
+form
+  .custom-placeholder::placeholder
+    color: #55565A /* Красный цвет */
+
+  /* Для поддержки старых версий браузеров */
+  .custom-placeholder::-webkit-input-placeholder /* Chrome, Safari */
+    color: #55565A
+
+  .custom-placeholder::-moz-placeholder /* Firefox */
+    color: #55565A
+
+  .custom-placeholder:-ms-input-placeholder /* Internet Explorer */
+    color: #55565A
+
+  .custom-placeholder:-moz-placeholder/* Firefox до версии 18 */
+    color: #55565A
+  input[type="text"], input[type="tel"], input[type="email"]
+    display: flex
+    align-items: center
+    padding R(14) R(20) R(14) R(20)
+    box-sizing: border-box
+    font-size: R(24)
+    font-size: clamp(R(15), 1vw + 1rem, R(24))
+    font-weight: 400
+    line-height: 1.5
+    border: R(2) solid #D6D6D6
+    border-radius: R(4)
+    margin-bottom: R(14)
+    white-space: pre
+    color: #282829
+    &:active, &:focus, &:hover
+      border: R(2) solid #D5C9BE
+    &:hover
+      box-shadow: 0 0 R(8) rgba(213, 201, 190, .5)
+  input[type="submit"]
+    height: R(100)
+    border: R(2) solid #282829
+    width: 100%
+    cursor: pointer
+    background-color: #282829
+    color: #FFFFFF
+    @media screen and (max-width: 992px)
+      height: R(64)
+    @media screen and (max-width: 767px)
+      height: R(48)
+    &:hover
+      transform: none
+      color: #282829
+      background-color: #FFFFFF
+    &:active
+      transform: none
+      background-color: #282829
+      color: #FFFFFF
+  .checked__wrapper
+    display: flex
+    align-items: center
+    margin: R(26) 0
+  .checker
+    flex none
+    margin-right: R(17)
+    cursor: pointer
+    display: block
+    height: R(24)
+    border: R(2) solid #405D65
+    width R(24)
+    border-radius: R(4)
+    box-sizing: border-box
+    position: relative
+    & + span
+      font-size: R(16)
+      font-size: clamp(R(15), 1vw + 1rem, R(16))
+      line-height: 1.25
+    &:hover
+      border: R(2) solid #D5C9BE
+      box-shadow: 0 0 R(8) rgba(213, 201, 190, .5)
+    span
+      position: absolute
+      font-size: R(36)
+      font-weight: 400
+      line-height: 1
+      color: #38535d
+      top -11px
+      left: 1.5px
+      opacity: 0
+  input[type="checkbox"]:checked + .checker    
+    border R(2) solid #d5c9be
+  input[type="checkbox"]:checked + .checker span
+    opacity: 1
+
+.logo
+  flex none
+  height: R(36)
+  background-image: url("./assets/images/Vector.svg")
+  width R(200)
+  background-position: center center
+  background-repeat: no-repeat
+  background-size: contain
+  // font-family: "Prata"
+  // font-size: R(36)
+  // font-size: clamp(R(30), 1.5vw + 1rem, R(36))
+  // line-height: 1
+  // font-weight: 400
+  // letter-spacing: .03
+  // text-transform: uppercase
+  // color: #ffffff
+  // span
+  // font-weight: 700
+
+.button
+  display: flex
+  align-items: center
+  justify-content: center
+  box-sizing: border-box
+  text-transform: uppercase
+  border-radius: R(4)
+  transition: all .125s ease-in-out
+  background-color: #ffffff
+  color: #222222
+  min-width R(200)
+  width auto
+  height: R(80)
+  font-size: R(24)
+  font-size: clamp(R(20), 1vw + 1rem, R(24))
+  font-weight: 700
+  line-height: 0
+  letter-spacing: .04
+  padding: 0 R(24)
+  @media screen and (max-width: 992px)
+    height: R(64)
+  @media screen and (max-width: 767px)
+    height: R(56)
+  &:hover
+    text-decoration: none
+    box-shadow: 0 0 R(18) rgba(255, 255, 255, .5)
+    // transform: scale(1.1)
+  &:active
+    box-shadow: none
+    // transform: scale(0.95)
+
+ul, ol
+  list-style none
+
+header, main, footer, section
+  width 100%
+
+.container
+  max-width: R(1630)
+  width 100%
+  margin: 0 auto
+  padding: 0 R(15)
+  box-sizing: border-box
+
+footer, .banner, .penultimate
+  background-color: #222222
+
+main
+  display: grid
+  grid-template-columns: 100%
+  grid-row-gap R(100)
+  @media screen and (max-width: 992px)
+    grid-row-gap R(60)
+  @media screen and (max-width: 767px)
+    grid-row-gap R(30)
+
+header
+  position: fixed
+  display: flex
+  align-items: flex-start
+  justify-content: flex-start
+  background-color: rgba(34, 34, 34, 0)
+  transition: .375s ease-in-out
+  z-index 2
+  @media screen and (min-width: 1200px)
+    &.colored
+      background-color: rgba(34, 34, 34, 1)
+      .container
+        padding: R(24) R(15)
+  @media screen and (max-width: 1199px)
+    background-color: rgba(34, 34, 34, 1)
+    .container
+      padding: R(20) R(15)
+  .logo
+    margin-right: R(200)
+    @media screen and (max-width: 1199px)
+      margin-right: auto
+  .container
+    padding: R(44) R(15)
+    box-sizing: border-box
+    display: flex
+    align-items: center
+    @media screen and (max-width: 1199px)
+      padding: R(20) R(15)
+    @media screen and (max-width: 992px)
+      flex-wrap: wrap
+      row-gap: R(30)
+    @media screen and (max-width: 7667px)
+      row-gap: R(20)
+  .burger__menu
+    display: none
+    .line
+      height: R(3)
+      border-radius: R(1.5)
+      background-color: #ffffff
+      width 100%
+    @media screen and (max-width: 992px)
+      width R(36)
+      row-gap: R(5)
+      height: R(36)
+      align-items: center
+      flex-direction: column
+      justify-content: center
+      cursor: pointer
+      display flex
+  .nav
+    flex: none
+    @media screen and (max-width: 992px)
+      width 100%
+      display: none
+      order 2
+      &.active
+        display: flex
+    &__list
+      display: flex
+      align-items: center
+      column-gap: R(30)
+    &__item
+      line-height: 1
+      &-link
+        font-style: italic
+        font-size: R(16)
+        font-size: clamp(R(15), 1vw + 1rem, R(16))
+        letter-spacing: .04
+        color: #ffffff
+        &:hover
+          color #D5C9BE
+          text-decoration: underline
+
+.banner
+  min-height: 100dvh
+  height: auto
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  justify-content: flex-end
+  position: relative
+  @media screen and (min-width: 1200px)
+    padding: R(248) 0 R(64)
+  @media screen and (max-width: 1199px)
+    padding: R(152) 0 R(32)
+    &:before
+      content: ''
+      position: absolute
+      top 0
+      left: 0
+      width 100%
+      height: 100%
+      display: block
+      background-color: rgba(40, 40, 41, .55)
+      z-index: 1
+
+  .button
+    z-index: 1
+    @media screen and (max-width: 992px)
+      margin-left: R(30)
+    @media screen and (max-width: 560px)
+      margin-left: R(15)
+  &__image
+    height: 100%
+    width: 40%
+    position: absolute
+    left: 60%
+    top: 0
+    object-fit: cover
+    object-position: top center
+    @media screen and (max-width: 992px)
+      width: 100%
+      left: 0
+  .container
+    height: 100%
+    align-items: flex-start
+    justify-content: flex-end
+    display: flex
+    flex-direction: column
+    @media screen and (max-width: 992px)
+      justify-content: flex-start
+  h1
+    font-size: R(80)
+    font-size: clamp(R(36), 5vw + 1rem, R(80))
+    font-weight: 400
+    z-index: 1
+    color: #ffffff
+    line-height: 1.2
+    margin-bottom: R(50)
+    // background-color: #222222
+    // max-width: R(785)
+    max-width: calc(60% - 15 / 16 * 1rem)
+
+    @media screen and (max-width: 1400px)
+      br
+        display: none
+    @media screen and (max-width: 992px)
+      // max-width calc(100% - 60 / 16 * 1rem)
+      max-width: 100%
+      margin-left: R(18)
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      justify-content: flex-start
+      margin-bottom: R(40)
+      span
+        display: block
+        position: relative
+        background-color: rgba(40, 40, 41, .77)
+        backdrop-filter: blur(R(4))
+        padding: .25rem .75rem
+        &:after
+          content: ''
+          position: absolute
+          display: block
+          height: 100%
+          width 100%
+          background-color: rgba(40, 40, 41, .77)
+          backdrop-filter: blur(R(4))
+          top 0
+          right: 100%
+    @media screen and (max-width: 767px)
+      margin-bottom: R(30)
+    @media screen and (max-width: 560px)
+      margin-left: 0
+    @media screen and (max-width: 414px)
+      font-size: clamp(R(28), 4vw + 1rem, R(80))
+      br
+        display: none
+
+  h2
+    font-size: R(50)
+    font-size: clamp(R(24), 3vw + 1rem, R(50))
+    z-index: 1
+    font-weight: inherit
+    color: #ffffff
+    // background-color: #222222
+    margin-bottom: R(64)
+    // max-width: R(785)
+    max-width: calc(60% - 15 / 16 * 1rem)
+    position: relative
+    @media screen and (max-width: 992px)
+      // max-width calc(100% - 60 / 16 * 1rem)
+      max-width: 100%
+      margin-left: R(18)
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      justify-content: flex-start
+      // margin-bottom: auto
+      span
+        display: block
+        background-color: rgba(40, 40, 41, .77)
+        backdrop-filter: blur(R(4))
+        padding: .25rem .75rem
+        position: relative
+        &:after
+          content: ''
+          position: absolute
+          display: block
+          height: 100%
+          width 100%
+          background-color: rgba(40, 40, 41, .77)
+          backdrop-filter: blur(R(4))
+          top 0
+          right: 100%
+      br
+        display: none
+    @media screen and (max-width: 560px)
+      margin-left: 0
+    @media screen and (max-width: 414px)
+      font-size: clamp(R(20), 2.5vw + 1rem, R(50))
+      br
+        display: none
+  .banner-list
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: center
+    row-gap: R(35)
+    z-index: 1
+    margin-bottom: R(40)
+    // max-width: R(785)
+    max-width: calc(60% - 15 / 16 * 1rem)
+    @media screen and (max-width: 992px)
+      max-width 100%
+      margin-left: R(30)
+      display: flex
+      flex-direction: column
+      align-items: flex-start
+      justify-content: flex-start
+      margin-bottom: R(40)
+      row-gap: R(24)
+      // margin-top: R(40)
+    @media screen and (max-width: 560px)
+      margin-left: R(15)
+    &__item
+      font-size: R(24)
+      font-size: clamp(R(16), 2vw + 1rem, R(24))
+      position: relative
+      padding-left: R(57)
+      padding-right: R(15)
+      line-height: 1.35
+      font-weight: 400
+      color: #ffffff
+      margin-block-start: 0;
+      // background-color: #222222
+      margin-block-end: 0;
+
+      span
+        font-size: R(40)
+        font-size: clamp(R(18), 3vw + 1rem, R(28))
+        font-family: "Prata"
+        font-weight: 700
+        line-height: inherit
+        letter-spacing: .04
+        position: relative
+        // top R(7)
+    
+      &:before
+        content: ""
+        display: block
+        position: absolute
+        top -2px
+        left: 0
+        width: R(40)
+        height: R(40)
+        background-image: url('assets/images/tick_ssoz1sn9kkb8 2.svg')
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center
+
+.about
+  display: flex
+  align-items: stretch
+  box-sizing: border-box
+  &__image
+    flex 1
+    position: relative
+    width: 100%
+    display: block
+    overflow: hidden
+    background-color: #55565A
+    @media screen and (max-width: 767px)
+      display: none
+    &:before
+      content: ""
+      width 100%
+      padding-top: 100%
+      display: block
+    img
+      position: absolute
+      top 0
+      left 0
+      width 100%
+      height: 100%
+      object-position: center
+      object-fit: cover
+  &__info
+    flex: none
+    width 100%
+    max-width: calc(100% / 3 + 106 / 16 * 1rem)
+    min-width: R(560)
+    display: flex
+    flex-direction: column
+    box-sizing: border-box
+    row-gap: R(40)
+    padding: R(40) R(53)
+    position: relative
+    align-items: center
+    justify-content: center
+    @media screen and (max-width: 992px)
+      padding: R(30)
+    @media screen and (max-width: 767px)
+      min-width: 100%
+      padding: R(24) R(20)
+      background-image: url("./assets/images/Flux_Dev_Depict_an_office_building_from_multiple_angles_showca_1.jpeg")
+      background-size: cover
+      background-repeat: no-repeat
+      background-position: center
+      &:before
+        content: ""
+        width 100%
+        height: 100%
+        position absolute
+        top 0
+        left: 0
+        display: block
+        background-color: rgba(40, 40, 41, .66)
+        backdrop-filter: blur(R(4))
+  .button
+    width 100%
+    position: relative
+    z-index: 1
+  &__list
+    background-color: #55565A
+    display: grid
+    grid-template-columns: 100%
+    grid-row-gap 1px
+    @media screen and (max-width: 767px)
+      background-color: unset
+      grid-row-gap R(3)
+    &-item
+      background-color: #282829
+      padding: R(40) 0 R(40) R(78)
+      box-sizing: border-box
+      position: relative
+      @media screen and (max-width: 992px)
+        padding: R(30) R(15) R(30) R(65)
+      @media screen and (max-width: 767px)
+        padding: R(20) R(15) R(20) R(65)
+        overflow: hidden
+        border-radius: R(4)
+        // background-color: rgba(40, 40, 41, .88)
+      object
+        position: absolute
+        left: 0
+        top R(48)
+        @media screen and (max-width: 992px)
+          width R(44)
+          left: R(4)
+          top R(30)
+        @media screen and (max-width: 767px)
+          width R(36)
+          left: R(15)
+          top R(20)
+      p
+        font-size: R(24)
+        font-size: clamp(R(16), 1.1vw + 1rem, R(24))
+        line-height: 1.4
+        font-weight: 400
+        color: #ffffff
+        margin-block-start: 0;
+        margin-block-end: 0;
+
+.feedback
+  @media screen and (max-width: 767px)
+    margin: R(30) auto
+  .container
+    position: relative
+  &__manager
+    position: absolute
+    bottom R(-2)
+    right: 15%
+    width: 33%
+    transform: rotateY(180deg)
+    @media screen and (max-width: 767px)
+      right: -7.5%
+      width: 44%
+    @media screen and (max-width: 480px)
+      display: none
+  &__wrapper
+    padding: R(80)
+    box-sizing: border-box
+    overflow: hidden
+    border-radius: R(30)
+    background-color: #ffffff
+    position: relative
+    @media screen and (max-width: 992px)
+      padding: R(40)
+      border-radius: R(20)
+    @media screen and (max-width: 767px)
+      padding: R(20)
+      border-radius: R(15)
+    @media screen and (max-width: 640px)
+      .button
+        height: R(56)
+    &:after
+      content: ''
+      display: block
+      position: absolute
+      top 0
+      right 0
+      width: calc(100% / 3 * 2)
+      height: 100%
+      background-image: url("./assets/images/v65_1198.png")
+      background-size: auto 100%
+      background-repeat: no-repeat
+      user-select: none
+      background-position: center
+      @media screen and (max-width: 767px)
+        opacity: .4
+      @media screen and (max-width: 640px)
+        opacity: .275
+    &-title
+      font-size: R(54)
+      font-size: clamp(R(36), 2vw + 1rem, R(54))
+      font-family: "Prata"
+      font-weight: 400
+      line-height: 1.1
+      margin-bottom: R(45)
+      color: #38535D
+      position: relative
+      z-index: 1
+      width: 50%
+      @media screen and (max-width: 767px)
+        width: calc(100% / 3 * 2)
+        font-weight:500
+        line-height: 1.2
+        margin-top: R(15)
+      @media screen and (max-width: 640px)
+        width: 100%
+      @media screen and (max-width: 560px)
+        br
+          display: none
+    &-form
+      display: grid
+      grid-template-columns: 100%
+      max-width: R(768)
+      width: calc(100% / 2)
+      z-index: 1
+      position: relative
+      @media screen and (max-width: 767px)
+        width: calc(100% / 3 * 2)
+      @media screen and (max-width: 480px)
+        width: 100%
+
+.penultimate
+  box-sizing: border-box
+  border-top: R(2) solid #D5C9BE
+  border-bottom: R(2) solid #D5C9BE
+  &__list
+    display: flex
+    align-items: center
+    justify-content: center
+    column-gap: R(60)
+    box-sizing: border-box
+    padding: R(40) 0
+    @media screen and (max-width: 992px)
+      padding: R(30) 0
+      column-gap: R(40)
+    @media screen and (max-width: 767px)
+      column-gap: R(30)
+      padding: R(20) 0
+    @media screen and (max-width: 560px)
+      column-gap: R(20)
+      padding: R(15) 0
+    &-item
+      font-style: italic
+      font-size: R(20)
+      font-size: clamp(R(15), 1vw + 1rem, R(20))
+      font-weight: 400
+      letter-spacing: .04
+      color: #ffffff
+      text-transform: uppercase
+
+footer
+  .container
+    display: flex
+    align-items: stretch
+    justify-content: space-between
+    row-gap: R(38)
+    column-gap: R(38)
+    padding-top: R(43)
+    padding-bottom: R(60)
+    flex-wrap: wrap
+    & > :nth-child(1), & > :nth-child(4)
+      align-items: flex-start
+    & > :nth-child(2), & > :nth-child(5)
+      align-items: center
+    & > :nth-child(3), & > :nth-child(6)
+      align-items: flex-end
+    @media screen and (max-width: 992px)
+      padding-top: R(40)
+      padding-bottom: R(60)
+      column-gap: R(30)
+      row-gap: R(30)
+      & > :nth-child(1)
+        width: calc((100% - 60 / 16 * 1rem) / 3)
+      & > :nth-child(2)
+        width: calc((100% - 60 / 16 * 1rem) / 3 * 2)
+        align-items: flex-end
+      & > :nth-child(3)
+        display: none
+      & > :nth-child(4), & > :nth-child(5), & > :nth-child(6)
+        width: calc((100% - 90 / 16 * 1rem) / 3)
+    @media screen and (max-width: 767px)
+      padding-top: R(30)
+      padding-bottom: R(30)
+      & > :nth-child(1)
+        width: R(200)
+      & > :nth-child(2)
+        width: calc(100% - R(230))
+    @media screen and (max-width: 600px)
+      & > :nth-child(1)
+        width: 100%
+        align-items: center
+        justify-content: center
+      & > :nth-child(2)
+        width: 100%
+        align-items: center
+      & > :nth-child(4)  
+        width: 100%
+        order: 5
+        align-items: center
+      & > :nth-child(5), & > :nth-child(6)
+        width: calc(50% - 30 / 16 * 1rem)
+      & > :nth-child(5)
+        align-items: flex-end
+      & > :nth-child(6)
+        align-items: flex-start
+      
+  .footer-container
+    &__item  
+      display: flex
+      flex-direction: column
+      justify-content: center
+      flex none
+      width: calc((100% - 76 / 16 * 1rem) / 3)
+    .button
+      font-weight: 300
+      font-style: italic
+  a
+    &:hover
+      text-decoration: none
+    &.terms_of_Use, &.privacy_policy
+      &:hover
+        color: #D5C9BE
+  .terms_of_Use, .copyright, .privacy_policy
+    font-weight: 400
+    line-height: 1.5
+    font-size: R(20)
+    font-size: clamp(R(15), 1vw + 1rem, R(20))
+    color: #ffffff
+
+    
+.social__links
+  display: flex
+  align-items: stretch
+  justify-content: center
+  column-gap: R(32)
+  @media screen and (max-width: 992px)
+    column-gap: R(24)
+  @media screen and (max-width: 767px)
+    column-gap: R(15)
+  a
+    display: block
+    width: R(32)
+    height: R(32)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+    transition: all 0.3s ease-in-out
+    @media screen and (max-width: 767px)
+      width: R(30)
+      height: R(30)
+.social__link
+  &-instagram
+    background-image: url("./assets/images/insta.svg")
+    &:hover
+      background-image: url("./assets/images/insta-active.svg")
+
+  &-tiktok
+    background-image: url("./assets/images/tiktok.svg")
+    &:hover
+      background-image: url("./assets/images/tiktok-active.svg")
+
+  &-linkedin
+    background-image: url("./assets/images/linkdn.svg")
+    &:hover
+      background-image: url("./assets/images/linkdn-active.svg")
+
+  &-facebook
+    background-image: url("./assets/images/facebook.svg")
+    &:hover
+      background-image: url("./assets/images/facebook-active.svg")
+
+  &-telegram
+    background-image: url("./assets/images/tg.svg")
+    &:hover
+      background-image: url("./assets/images/tg-active.svg")
+
+  &-youtube
+    background-image: url("./assets/images/yt.svg")
+    &:hover
+      background-image: url("./assets/images/yt-active.svg")
+
+/* Стили для основного скроллбара */
+::-webkit-scrollbar {
+    width: 10px; /* Ширина вертикального скроллбара */
+    height: 10px; /* Высота горизонтального скроллбара */
+}
+
+/* Стили для трека (фона) скроллбара */
+::-webkit-scrollbar-track {
+    background: #282829; /* Цвет фона */
+    border-radius: 10px; /* Закругленные углы */
+}
+
+/* Стили для ползунка (бегунка) скроллбара */
+::-webkit-scrollbar-thumb {
+    background: #ffffff; /* Цвет ползунка */
+    border-radius: 10px; /* Закругленные углы */
+    border: 1px solid #ffffff; /* Отступ вокруг ползунка */
+}
+
+/* Стили для ползунка при наведении */
+::-webkit-scrollbar-thumb:hover {
+    background: #38535D; /* Цвет ползунка при наведении */
+}
+
+/* Стили для углового элемента (если есть горизонтальный и вертикальный скроллбары) */
+::-webkit-scrollbar-corner {
+    background: #282829; /* Цвет угла */
+}
